@@ -1,0 +1,83 @@
+.btn {
+  --btn-shadow: var(--c-ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 54px;
+  padding: 0.62em 1.25em 0.55em;
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border: 3px solid var(--c-ink);
+  /* esquinas ligeramente disparejas, como recortadas a mano */
+  border-radius: 12px 5px 11px 6px / 6px 11px 5px 12px;
+  box-shadow: 3px 4px 0 var(--btn-shadow);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.2s cubic-bezier(0.3, 1.7, 0.5, 1),
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+}
+
+.btn span {
+  /* compensa la línea base de Londrina */
+  padding-top: 0.06em;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: translate(-2px, -3px) rotate(-1.5deg);
+    box-shadow: 5px 7px 0 var(--btn-shadow);
+  }
+}
+
+.btn:active {
+  transform: translate(2px, 3px);
+  box-shadow: 1px 1px 0 var(--btn-shadow);
+}
+
+.primary {
+  background: var(--c-red);
+  color: var(--c-paper);
+}
+
+@media (hover: hover) {
+  .primary:hover {
+    background: var(--c-red-dark);
+  }
+}
+
+.secondary {
+  background: var(--c-paper);
+  color: var(--c-red);
+}
+
+.cream {
+  background: var(--c-cream);
+  color: var(--c-red);
+}
+
+.lg {
+  min-height: 64px;
+  font-size: clamp(1.55rem, 6vw, 2rem);
+  padding: 0.6em 1em 0.52em;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}

@@ -1,0 +1,224 @@
+.section {
+  overflow: hidden;
+  padding: var(--section-y) 0;
+  background-color: var(--c-sky);
+  background-image: var(--paper-noise);
+  border-bottom: 3px solid var(--c-ink);
+}
+
+.grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.heading {
+  --fs-h2: clamp(3rem, 13vw, 4.8rem);
+  margin-bottom: 1.5rem;
+}
+
+.mascot {
+  width: clamp(110px, 30vw, 150px);
+  height: auto;
+  flex: none;
+  margin-bottom: 1rem;
+  color: var(--c-red);
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+.address {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--c-ink);
+}
+
+.pin {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  color: var(--c-red);
+}
+
+.street {
+  display: block;
+  font-size: clamp(2rem, 8vw, 2.5rem);
+  line-height: 0.95;
+  color: var(--c-red);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.actions > a {
+  flex: 1 1 220px;
+}
+
+/* -------------------------------- horario ------------------------------- */
+
+.hours {
+  position: relative;
+  margin-top: 2.25rem;
+  padding: 1.5rem 1.25rem 1.25rem;
+  border: 3px solid var(--c-ink);
+  border-radius: 6px 12px 4px 10px;
+  box-shadow: 6px 7px 0 var(--c-ink);
+  transform: rotate(-1deg);
+}
+
+.hoursLabel {
+  position: absolute;
+  top: -1.1rem;
+  left: 1rem;
+  padding: 0.2rem 0.75rem 0.1rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--c-paper);
+  background: var(--c-red);
+  border: 2.5px solid var(--c-ink);
+  border-radius: 4px 9px 3px 8px;
+  transform: rotate(-3deg);
+}
+
+.hoursTime {
+  font-size: clamp(2.7rem, 12vw, 3.6rem);
+  line-height: 0.95;
+  color: var(--c-red);
+}
+
+.hoursDays {
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.week {
+  display: flex;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.day,
+.dayClosed {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: 1.3rem;
+  border: 2.5px solid var(--c-red);
+  border-radius: 50%;
+}
+
+.day {
+  color: var(--c-paper);
+  background: var(--c-red);
+}
+
+.dayClosed {
+  color: var(--c-red);
+  background: transparent;
+}
+
+/* tache a mano sobre el martes */
+.dayClosed::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 7 L34 33 M33 6 L7 34' stroke='%232b1712' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.status {
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------- mapa --------------------------------- */
+
+.mapWrap {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  flex: 1;
+  min-height: 320px;
+  padding: 10px;
+  background: var(--c-paper);
+  border: 3px solid var(--c-ink);
+  border-radius: 4px;
+  box-shadow: 8px 10px 0 var(--c-ink);
+  transform: rotate(1deg);
+}
+
+.map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 296px;
+  border: 0;
+  filter: sepia(0.25) saturate(0.95);
+}
+
+/* cinta adhesiva */
+.tape {
+  position: absolute;
+  z-index: 2;
+  width: 110px;
+  height: 30px;
+  background: rgba(247, 226, 122, 0.85);
+  border-left: 2px dashed rgba(43, 23, 18, 0.15);
+  border-right: 2px dashed rgba(43, 23, 18, 0.15);
+  pointer-events: none;
+}
+
+.tapeA {
+  top: -12px;
+  left: -14px;
+  transform: rotate(-24deg);
+}
+
+.tapeB {
+  top: -10px;
+  right: -16px;
+  transform: rotate(18deg);
+}
+
+.mapLink {
+  align-self: flex-end;
+  margin-top: 1.1rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .map {
+    min-height: 100%;
+  }
+
+  .mapWrap {
+    min-height: 560px;
+    margin-top: 1rem;
+  }
+}

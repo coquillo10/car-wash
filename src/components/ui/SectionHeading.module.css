@@ -1,0 +1,53 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: clamp(2rem, 6vw, 3.25rem);
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.4rem, 2vw, 0.9rem);
+  font-size: var(--fs-h2);
+  color: var(--heading-color, var(--c-red));
+}
+
+.tilt .text {
+  display: inline-block;
+  transform: rotate(-2.5deg) skewX(-5deg);
+}
+
+.rays {
+  flex: none;
+  width: clamp(18px, 4.5vw, 32px);
+  height: auto;
+}
+
+.left .rays {
+  display: none;
+}
+
+.underline {
+  width: min(70%, 320px);
+  height: 18px;
+  margin-top: -0.3rem;
+  color: var(--heading-color, var(--c-red));
+  transform: rotate(-2deg);
+}
+
+.subtitle {
+  font-size: var(--fs-script);
+  color: var(--subtitle-color, var(--c-ink));
+  transform: rotate(-2deg);
+}

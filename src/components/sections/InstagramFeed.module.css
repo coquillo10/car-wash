@@ -1,0 +1,84 @@
+.section {
+  padding: var(--section-y) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4px;
+  background: var(--c-ink);
+  border-radius: 6px;
+  box-shadow: 6px 8px 0 var(--c-red);
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--c-paper);
+}
+
+.link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--c-paper);
+  background: rgba(197, 29, 36, 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.overlay svg {
+  width: 40px;
+  height: 40px;
+}
+
+@media (hover: hover) {
+  .link:hover .img {
+    transform: scale(1.06);
+  }
+
+  .link:hover .overlay {
+    opacity: 1;
+  }
+}
+
+.link:focus-visible {
+  outline-offset: -6px;
+  outline-color: var(--c-paper);
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.handle {
+  font-size: 1.8rem;
+  color: var(--c-red);
+  transform: rotate(-3deg);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

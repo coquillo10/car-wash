@@ -1,0 +1,48 @@
+.status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.5rem;
+  min-height: 2.2rem;
+  padding: 0.35rem 0.8rem;
+  font-size: var(--fs-small);
+  line-height: 1.2;
+  border: 2px solid var(--c-ink);
+  border-radius: 16px 8px 14px 10px;
+  visibility: hidden;
+}
+
+.status[data-ready] {
+  visibility: visible;
+}
+
+.open {
+  background: var(--c-green);
+  color: var(--c-ink);
+}
+
+.closed {
+  background: var(--c-paper);
+  color: var(--c-ink);
+}
+
+.dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+
+.open .dot {
+  background: var(--c-paper);
+  box-shadow: 0 0 0 2px var(--c-ink);
+}
+
+.closed .dot {
+  background: var(--c-red);
+}
+
+.detail {
+  font-weight: 400;
+}

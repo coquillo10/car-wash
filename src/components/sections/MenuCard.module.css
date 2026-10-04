@@ -1,0 +1,143 @@
+.card {
+  --checker-size: 18px;
+  flex: 1 1 calc(50% - 0.5rem);
+  max-width: calc(50% - 0.5rem);
+}
+
+.featured {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.poster {
+  height: 100%;
+  padding: 8px;
+  border: 3px solid var(--c-ink);
+  border-radius: 6px 3px 7px 4px;
+  box-shadow: 4px 5px 0 var(--c-ink);
+  transform: rotate(var(--tilt, 0deg));
+  transition:
+    transform 0.3s cubic-bezier(0.3, 1.6, 0.5, 1),
+    box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+  .poster:hover {
+    transform: rotate(calc(var(--tilt, 0deg) * -1.6)) translateY(-4px);
+    box-shadow: 7px 9px 0 var(--c-ink);
+  }
+
+  .poster:hover .img {
+    transform: scale(1.06);
+  }
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0.75rem 0.6rem 0.85rem;
+  text-align: center;
+  border: 2px solid var(--c-red);
+  border-radius: 999px 999px 4px 4px / 160px 160px 4px 4px;
+}
+
+.number {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  z-index: 1;
+  font-family: var(--ff-display);
+  font-size: 0.95rem;
+  color: var(--c-red);
+  transform: rotate(8deg);
+}
+
+/* foto en arco, como la ventanita del post "Nuevo menú" */
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  overflow: hidden;
+  border: 2.5px solid var(--c-red);
+  border-radius: 999px 999px 6px 6px;
+  background: var(--c-cream);
+}
+
+.featured .photo {
+  aspect-ratio: 4 / 3;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.name {
+  margin-top: 0.7rem;
+  font-size: clamp(1.75rem, 7.4vw, 2.1rem);
+  line-height: 0.88;
+  color: var(--c-red);
+  text-wrap: balance;
+}
+
+.featured .name {
+  font-size: clamp(2.4rem, 11vw, 3rem);
+}
+
+.note {
+  margin-top: auto;
+  padding-top: 0.4rem;
+  font-size: clamp(1.15rem, 4.4vw, 1.3rem);
+  color: var(--c-ink);
+  transform: rotate(-2deg);
+}
+
+/* dibujito tipo sello en la esquina, opuesto al número */
+.doodle {
+  position: absolute;
+  z-index: 1;
+  top: 0.35rem;
+  left: 0.4rem;
+  width: clamp(30px, 9vw, 38px);
+  height: auto;
+  padding: 4px;
+  color: var(--c-red);
+  background: var(--c-paper);
+  border: 2px solid var(--c-red);
+  border-radius: 50%;
+  transform: rotate(-10deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1.7, 0.5, 1);
+}
+
+@media (hover: hover) {
+  .poster:hover .doodle {
+    transform: rotate(8deg) scale(1.1);
+  }
+}
+
+@media (min-width: 720px) {
+  .card,
+  .featured {
+    flex: 0 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+  }
+
+  .featured .photo {
+    aspect-ratio: 4 / 4.4;
+  }
+
+  .featured .name {
+    font-size: clamp(1.75rem, 3vw, 2.1rem);
+  }
+}
+
+@media (min-width: 1100px) {
+  .card,
+  .featured {
+    flex-basis: calc(20% - 1.2rem);
+    max-width: calc(20% - 1.2rem);
+  }
+}

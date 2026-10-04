@@ -1,0 +1,138 @@
+.section {
+  --checker-size: 56px;
+  --c-pink: var(--c-cream);
+  padding: clamp(3.5rem, 11vw, 6.5rem) 0;
+  border-block: 3px solid var(--c-ink);
+}
+
+.napkin {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+  padding: clamp(2rem, 7vw, 3.25rem) clamp(1.25rem, 6vw, 3.5rem);
+  text-align: center;
+  border: 3px solid var(--c-ink);
+  border-radius: 4px 10px 6px 12px;
+  box-shadow: 10px 12px 0 rgba(43, 23, 18, 0.85);
+  transform: rotate(-1.5deg);
+}
+
+.napkin::before {
+  /* doblez de servilleta */
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 2px dashed rgba(197, 29, 36, 0.4);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 0.75rem;
+  color: var(--c-red);
+}
+
+.title {
+  font-size: clamp(3.2rem, 14vw, 5.6rem);
+  line-height: 0.88;
+  color: var(--c-red);
+}
+
+.titleInner {
+  display: inline-block;
+  transform: rotate(-3deg) skewX(-5deg);
+  text-wrap: balance;
+}
+
+.text {
+  max-width: 30ch;
+  margin: 1rem auto 0;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 440px;
+  margin: 1.75rem auto 0;
+}
+
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.25rem 0.5rem;
+  color: var(--c-ink);
+  text-decoration: none;
+  text-align: left;
+  transition: transform 0.2s cubic-bezier(0.3, 1.7, 0.5, 1);
+}
+
+@media (hover: hover) {
+  .phone:hover {
+    transform: rotate(-2deg);
+  }
+}
+
+.phoneIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--c-red);
+}
+
+.phoneLabel {
+  display: block;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.phoneNumber {
+  display: block;
+  font-size: clamp(2.1rem, 9vw, 2.6rem);
+  line-height: 0.95;
+  color: var(--c-red);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.sparkleA,
+.sparkleB,
+.star {
+  position: absolute;
+  color: var(--c-red);
+  pointer-events: none;
+}
+
+.sparkleA {
+  top: 1.6rem;
+  left: 1.6rem;
+  width: 28px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.sparkleB {
+  right: 1.8rem;
+  bottom: 2rem;
+  width: 22px;
+  animation: twinkle 2.6s 0.7s ease-in-out infinite;
+}
+
+.star {
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 34px;
+  animation: twinkle 4s 0.3s ease-in-out infinite;
+}
